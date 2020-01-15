@@ -1,0 +1,33 @@
+﻿在開始這個功課前，我可以想像它跟一個網頁註冊功能，用戶輸入名稱後，驗證這個夠稱能否接受被使用。
+
+以下是整個過程…
+我為這個功課構想了幾個步驟：
+1、get user inputs
+    在查看了很多基本C#的範本，學到利用Console.ReadLine()及variable的形態收集用戶輸入儲存起來，及利用Console.WriteLine將variable輸出作暫時的測試。
+2、validate user inputs
+    來到這裡，產生了以下的問題：
+        2.1、如何將badwords轉化為array
+            在這裡學到ystem.IO.File.ReadAllLines("需要提供目標檔案的系統full path才能讀取，而不是放在Project的路徑")。
+        2.2、如何使用foreach配合if完成每個字的對比
+            foreach 及if 在php練習過，看完說明很容易地過了。
+        2.3、if甚麼？
+            在我的理解，在收集的string當中有符號，只要包含有bad word就能filter出來。
+            那麼開始google c#有compare, contains，因為compare是單對單，contains是多對單，最後選擇contains。
+        2.4、replace字串以同樣數量的**取代
+            在想如果找到目標，只要認出它的長度，就知道用多少數量去replace，google了一陣找到了string.length來解決。經過無數次foreach loop後不斷用replace更新user input的string.
+3、echo the result
+    來到最令人興奮的收成部份，發現…結果是"f***, F***", 我打開bad-words.txt看下去，發現fuck之前還有fu…還有uck，也發現F和f有分別…於是產生了以下問題：
+    3.1、解決大小寫對比
+        在萬能的Google搜尋"c# compare case"自動彈出insensitive string，經過一翻測試後，用StringComparison.OrdinalIgnoreCase 解決了。
+    3.2、要完全能抓出整個字才能做replace
+        想到這裡，應該就是這個功課重點核心的地方…我完全地投降了…
+        在Daniel老師的指引下，我看到聖光！
+        string pattern = String.Format(@"\b{0}\b", wordToFind);
+        string ret=Regex.Replace(original, pattern, replacement, regexOptions);
+    3.3、將txt的內容放進program裡寫成array
+        我是copy到sublime text editor 處理加上"",，再copy and paste到visual studio來達到目的…
+
+總結一下：
+1、對比string需要在Ingore Case情況下進行
+2、要精準地搜尋string，需要熟習Regex
+3、解決又臭又長的array syntax，需要了解更多visual studio 的編輯功能
