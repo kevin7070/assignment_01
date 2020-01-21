@@ -35,3 +35,5 @@
 updated on 21-1-2020
 - catch bad-word file to an array using system.io.file.RealAllLines("file_name");
 - clean up the code
+- create a function to load all bad-words
+- call the fucntion with parameter of filePath

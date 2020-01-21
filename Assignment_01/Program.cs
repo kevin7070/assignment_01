@@ -16,13 +16,25 @@ namespace Assignment_01
 {
     class Program
     {
+        //static string[] LoadCensorWords()
+        //{
+        //    string[] filePath = File.ReadAllLines("bad-words.txt");
+        //    return filePath;
+        //}
+
+        static string[] LoadCensorWords(string filePath)
+        {
+            string[] CensorWords = File.ReadAllLines(filePath);
+            return CensorWords;
+        }
+
         static void Main(string[] args)
         {
-            // array of bad-words
-            string[] badWords = File.ReadAllLines("bad-words.txt");
-
             // collect user input
             string userString = Console.ReadLine();
+
+            // load bad-words as an array
+            var badWords = LoadCensorWords("bad-words.txt");
 
             // compare and replace the whole words
             foreach (string badWord in badWords)
