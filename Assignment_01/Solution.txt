@@ -31,3 +31,7 @@
 1、對比string需要在Ingore Case情況下進行
 2、要精準地搜尋string，需要熟習Regex
 3、解決又臭又長的array syntax，需要了解更多visual studio 的編輯功能
+
+updated on 21-1-2020
+- catch bad-word file to an array using system.io.file.RealAllLines("file_name");
+- clean up the code
