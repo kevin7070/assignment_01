@@ -16,12 +16,6 @@ namespace Assignment_01
 {
     class Program
     {
-        //static string[] LoadCensorWords()
-        //{
-        //    string[] filePath = File.ReadAllLines("bad-words.txt");
-        //    return filePath;
-        //}
-
         static string[] LoadCensorWords(string filePath)
         {
             string[] CensorWords = File.ReadAllLines(filePath);
